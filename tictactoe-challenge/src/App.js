@@ -15,9 +15,20 @@ const App = () => {
     O: 0,
   });
 
+  const checkForWinner = (squares) => {
+    setTurn(turn === "X" ? "0" : "X");
+  };
+
+  const handleClick = (square) => {
+    let newSquares = [...squares];
+    newSquares.splice(square, 1, turn);
+    setSquares(newSquares);
+    checkForWinner(newSquares);
+  };
+
   return (
     <div className="container">
-      <Board squares={squares} />
+      <Board urn={turn} squares={squares} onClick={handleClick} />
     </div>
   );
 };

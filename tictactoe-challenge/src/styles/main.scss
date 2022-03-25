@@ -2,13 +2,13 @@
 
 @import "./components/board.scss";
 @import "./components/square.scss";
+@import "./components/scoreBoard.scss";
 
 .container {
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    height: 100vh;
-    background-color: $backgroundColor;
-  }
-  
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  height: 100vh;
+  background-color: $backgroundColor;
+}

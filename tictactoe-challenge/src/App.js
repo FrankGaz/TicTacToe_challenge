@@ -1,6 +1,7 @@
 import { useState } from "react";
 import "./styles/main.scss";
 import Board from "./components/Board";
+import ScoreBoard from "./components/ScoreBoard.jsx";
 
 // Possible winning positions
 const winningPositions = [
@@ -95,6 +96,7 @@ const App = () => {
         squares={squares}
         onClick={handleClick}
       />
+       <ScoreBoard scoreO={score.O} scoreX={score.X} />
     </div>
   );
 };

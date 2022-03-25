@@ -1,7 +1,8 @@
 const ScoreBoard = ({ scoreX, scoreO }) => (
   <div className="score-board">
-    <div></div>
-    <div></div>
+    <div>{scoreX}</div>
+    <div>{scoreO}</div>
   </div>
 );
+
 export default ScoreBoard;

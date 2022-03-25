@@ -1,5 +1,6 @@
 .turn-indicator {
   width: 320px;
+  min-height: 50px;
   display: flex;
   justify-content: center;
   align-items: center;
@@ -18,8 +19,12 @@
       margin-right: 0;
     }
     &:nth-child(2n) {
+      display: flex;
       min-width: 120px;
       margin-left: 10px;
+      min-height: 50px;
+      justify-content: center;
+      align-items: center;
     }
   }
 }

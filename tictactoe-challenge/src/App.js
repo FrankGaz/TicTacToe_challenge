@@ -16,7 +16,7 @@ const App = () => {
   });
 
   const checkForWinner = (squares) => {
-    setTurn(turn === "X" ? "0" : "X");
+    setTurn(turn === "X" ? "O" : "X");
   };
 
   const handleClick = (square) => {

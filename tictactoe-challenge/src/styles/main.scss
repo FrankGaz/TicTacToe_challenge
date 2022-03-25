@@ -1,0 +1,14 @@
+@import "variables.scss";
+
+@import "./components/board.scss";
+@import "./components/square.scss";
+
+.container {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+    background-color: $backgroundColor;
+  }
+  

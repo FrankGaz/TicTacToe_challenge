@@ -1,10 +1,11 @@
 import Square from "./Square";
 
-const Board = ({ squares, onClick, turn }) => {
+const Board = ({ squares, onClick, turn, winningSquares }) => {
   // function to map
   const createSquares = (values) =>
     values.map((value) => (
       <Square
+        winner={winningSquares.includes(value)}
         turn={turn}
         onClick={() => onClick(value)}
         value={squares[value]}

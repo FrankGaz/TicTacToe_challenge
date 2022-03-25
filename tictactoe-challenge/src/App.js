@@ -31,6 +31,9 @@ const App = () => {
   // State for winnin set of squares
   const [winningSquares, setWinningSquares] = useState([]);
 
+  // State for the winner
+  const [winner, setWinner] = useState(null);
+
   // Checking for winning positions
   const checkForWinner = (newSquares) => {
     for (let i = 0; i < winningPositions.length; i++) {

@@ -5,7 +5,6 @@ const Icon = (turn) => {
     icon: true,
     [`icon--${turn.turn}`]: turn !== null,
   });
-  console.log("turn icon >>> ", turn.turn);
 
   return <div className={iconClass}></div>;
 };

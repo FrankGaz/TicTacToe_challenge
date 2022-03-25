@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState } from "react";
 import "./styles/main.scss";
 import Board from "./components/Board";
 import ScoreBoard from "./components/ScoreBoard.jsx";
@@ -38,21 +38,6 @@ const App = () => {
   // State for a Tie
   const [tie, setTie] = useState(null);
 
-  // Check who is the winner to show it
-  useEffect(() => {
-    console.log(winner);
-  }, [winner]);
-
-  // Check who have the turn
-  useEffect(() => {
-    console.log("turn >>> ", turn);
-  }, [turn]);
-
-  // Check if there is a Tie
-  useEffect(() => {
-    console.log("turn >>> ", tie);
-  }, [tie]);
-
   // Checking for winning positions
   const checkForWinner = (newSquares) => {
     for (let i = 0; i < winningPositions.length; i++) {
@@ -62,16 +47,13 @@ const App = () => {
         newSquares[a] === newSquares[b] &&
         newSquares[a] === newSquares[c]
       ) {
-        console.log("There is a winner");
         endGame(newSquares[a], winningPositions[i]);
-        console.log("Winner >>> ", newSquares[a]);
         setWinner(newSquares[a]);
         return;
       }
     }
     // Check if there is a tie
     if (!newSquares.includes(null)) {
-      console.log("There is a tie");
       setTie(true);
       endGame(null, Array.from(Array(10).keys()));
       return;

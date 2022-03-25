@@ -13,4 +13,20 @@
   align-items: center;
   height: 100vh;
   background-color: $backgroundColor;
+
+  .resetButton {
+    color: $white;
+    text-align: center;
+    font-size: 1em;
+    padding: 10px;
+    font-weight: bold;
+    background-color: $squareColor;
+    border: 0;
+    margin: 10px;
+    transition: all 0.2s;
+    &:hover{
+      background-color: $xColor;
+      border-radius: 10%;
+    }
+  }
 }

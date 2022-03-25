@@ -109,6 +109,14 @@ const App = () => {
     setTie(null);
   };
 
+  // Reset Scores function
+  const resetScores = () => {
+    setScore({
+      X: 0,
+      O: 0,
+    });
+  };
+
   const handleClick = (square) => {
     let newSquares = [...squares];
     newSquares.splice(square, 1, turn);
@@ -126,6 +134,9 @@ const App = () => {
         onClick={handleClick}
       />
       <ScoreBoard scoreO={score.O} scoreX={score.X} />
+      <button className="resetButton" onClick={() => resetScores()}>
+        Reset
+      </button>
     </div>
   );
 };

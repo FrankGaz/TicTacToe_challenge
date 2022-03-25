@@ -1,7 +1,8 @@
-import { useState } from "react";
+import { useState, useEffect } from "react";
 import "./styles/main.scss";
 import Board from "./components/Board";
 import ScoreBoard from "./components/ScoreBoard.jsx";
+import TurnIndicator from "./components/TurnIndicator";
 
 // Possible winning positions
 const winningPositions = [
@@ -34,6 +35,26 @@ const App = () => {
   // State for the winner
   const [winner, setWinner] = useState(null);
 
+
+  // State for a Tie
+  const [tie, setTie] = useState(null);
+
+   // Check who is the winner to show it
+   useEffect(() => {
+    console.log(winner);
+  }, [winner]);
+
+  // Check who have the turn
+  useEffect(() => {
+    console.log("turn >>> ", turn);
+  }, [turn]);
+
+  // Check if there is a Tie
+  useEffect(() => {
+    console.log("turn >>> ", tie);
+  }, [tie]);
+
+
   // Checking for winning positions
   const checkForWinner = (newSquares) => {
     for (let i = 0; i < winningPositions.length; i++) {
@@ -46,12 +67,14 @@ const App = () => {
         console.log("There is a winner");
         endGame(newSquares[a], winningPositions[i]);
         console.log("Winner >>> ", newSquares[a]);
+        setWinner(newSquares[a]);
         return;
       }
     }
     // Check if there is a tie
     if (!newSquares.includes(null)) {
       console.log("There is a tie");
+      setTie(true);
       endGame(null, Array.from(Array(10).keys()));
       return;
     }
@@ -82,6 +105,10 @@ const App = () => {
     setSquares(Array(9).fill(null));
     // reset winning positions
     setWinningSquares([]);
+    // reset winner player
+    setWinner(null);
+    // reset Tie result
+    setTie(null);
   }
 
   const handleClick = (square) => {
@@ -99,6 +126,7 @@ const App = () => {
         squares={squares}
         onClick={handleClick}
       />
+      <TurnIndicator turn={turn} winner={winner} tie={tie}/>
        <ScoreBoard scoreO={score.O} scoreX={score.X} />
     </div>
   );

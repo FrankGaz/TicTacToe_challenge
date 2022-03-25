@@ -1,0 +1,25 @@
+.turn-indicator {
+    width: 320px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin: 20px 0px;
+    padding: 20px 0;
+    text-align: center;
+    font-size: 2em;
+    font-weight: bold;
+    color: $white;
+    background-color: $backgroundColor;
+
+    div {
+      margin: 0 20px;
+      &:first-child {
+          margin-right: 0;
+        }
+      &:nth-child(2n) {
+        min-width: 120px;
+        margin-left: 10px;
+      }
+    }
+  }
+  

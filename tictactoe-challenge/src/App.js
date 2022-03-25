@@ -56,7 +56,9 @@ const App = () => {
 
   // End Game function
   const endGame = (result, winningPositions) => {
+    // stops turns
     setTurn(null);
+
     if (result !== null) {
       setScore({
         ...score,
@@ -64,7 +66,19 @@ const App = () => {
       });
     }
     setWinningSquares(winningPositions);
+    // Reset the game after 2 seconds
+    setTimeout(reset, 2000);
   };
+
+  // Reset Game function
+  const reset = () =>{
+    // reset turn
+    setTurn('X');
+    // reset squares
+    setSquares(Array(9).fill(null));
+    // reset winning positions
+    setWinningSquares([]);
+  }
 
   const handleClick = (square) => {
     let newSquares = [...squares];

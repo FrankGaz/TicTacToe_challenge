@@ -35,12 +35,11 @@ const App = () => {
   // State for the winner
   const [winner, setWinner] = useState(null);
 
-
   // State for a Tie
   const [tie, setTie] = useState(null);
 
-   // Check who is the winner to show it
-   useEffect(() => {
+  // Check who is the winner to show it
+  useEffect(() => {
     console.log(winner);
   }, [winner]);
 
@@ -53,7 +52,6 @@ const App = () => {
   useEffect(() => {
     console.log("turn >>> ", tie);
   }, [tie]);
-
 
   // Checking for winning positions
   const checkForWinner = (newSquares) => {
@@ -98,9 +96,9 @@ const App = () => {
   };
 
   // Reset Game function
-  const reset = () =>{
+  const reset = () => {
     // reset turn
-    setTurn('X');
+    setTurn("X");
     // reset squares
     setSquares(Array(9).fill(null));
     // reset winning positions
@@ -109,7 +107,7 @@ const App = () => {
     setWinner(null);
     // reset Tie result
     setTie(null);
-  }
+  };
 
   const handleClick = (square) => {
     let newSquares = [...squares];
@@ -120,14 +118,14 @@ const App = () => {
 
   return (
     <div className="container">
+      <TurnIndicator turn={turn} winner={winner} tie={tie} />
       <Board
         winningSquares={winningSquares}
         turn={turn}
         squares={squares}
         onClick={handleClick}
       />
-      <TurnIndicator turn={turn} winner={winner} tie={tie}/>
-       <ScoreBoard scoreO={score.O} scoreX={score.X} />
+      <ScoreBoard scoreO={score.O} scoreX={score.X} />
     </div>
   );
 };

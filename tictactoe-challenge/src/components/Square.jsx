@@ -1,6 +1,8 @@
-const Square = ({ value }) => {
-    return <div className="square"></div>;
+const Square = ({ value, onClick, turn }) => {
+  const handleClick = () => {
+    turn !== null && value === null && onClick();
   };
-  
-  export default Square;
-  
+  return <div className="square" onClick={() => handleClick()}></div>;
+};
+
+export default Square;
